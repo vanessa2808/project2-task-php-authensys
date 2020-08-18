@@ -3,7 +3,7 @@ include 'model/backend_model.php';
 class Controller {
 
     function handleRequest(){
-        $model = new backEndModel();
+        $model = new model();
         $controller = isset($_GET['controller'])?$_GET['controller']:'home';
         $action = isset($_GET['action'])?$_GET['action']:'index';
 
@@ -27,9 +27,9 @@ class Controller {
         switch ($action) {
 
             case 'list_users':
-                $this->checkLoginSession();
+                //$this->checkLoginSession();
                 # code...
-                $listUsers = $model->listUsers();
+                $listUsers = $model->getListUser();
                 include 'view/list_users.php';
                 break;
             case 'delete_user':

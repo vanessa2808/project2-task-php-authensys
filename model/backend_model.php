@@ -3,6 +3,10 @@ include 'config/connectDB.php';
 
 class Model extends ConnectDB {
     // Check login
+    public function getListUser() {
+        $sql = "SELECT * FROM users";
+        return mysqli_query($this->connect(), $sql);
+    }
     public function checkLogin($email, $password) {
         $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
         $listUser = mysqli_query($this->connect(), $sql);
